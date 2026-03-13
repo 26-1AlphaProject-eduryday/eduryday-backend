@@ -1,3 +1,22 @@
 spring:
   application:
     name: eduryday-backend
+
+  datasource:
+    url: jdbc:postgresql://${SUPABASE_HOST}:6543/postgres
+    username: ${SUPABASE_USERNAME}
+    password: ${SUPABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:disabled}
+      enabled: false
